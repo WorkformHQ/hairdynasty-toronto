@@ -1,0 +1,987 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hair Dynasty | Toronto Hair Salon on Yonge St</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root {
+    --cream: #F5F0E8;
+    --cream-dark: #EDE5D5;
+    --warm-white: #FAF7F2;
+    --gold: #B8924A;
+    --gold-light: #D4AC6E;
+    --gold-pale: #F0E0C0;
+    --espresso: #2C1F14;
+    --brown: #4A3020;
+    --brown-mid: #7A5C3C;
+    --text: #2C1F14;
+    --muted: #8A7460;
+    --border: rgba(184,146,74,0.25);
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--warm-white);
+    color: var(--text);
+    font-family: 'Lato', sans-serif;
+    font-weight: 300;
+    overflow-x: hidden;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    padding: 1.25rem 4rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: rgba(250,247,242,0.96);
+    border-bottom: 1px solid var(--border);
+    backdrop-filter: blur(8px);
+  }
+
+  .nav-logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.3rem;
+    font-weight: 400;
+    color: var(--espresso);
+    text-decoration: none;
+    letter-spacing: 0.05em;
+  }
+
+  .nav-logo span { color: var(--gold); font-style: italic; }
+
+  .nav-links {
+    display: flex;
+    gap: 2.5rem;
+    list-style: none;
+  }
+
+  .nav-links a {
+    font-size: 0.72rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--brown-mid);
+    text-decoration: none;
+    transition: color 0.3s;
+  }
+
+  .nav-links a:hover { color: var(--gold); }
+
+  .nav-book {
+    font-size: 0.68rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--warm-white);
+    background: var(--espresso);
+    padding: 0.65rem 1.5rem;
+    text-decoration: none;
+    border-radius: 2px;
+    transition: background 0.3s;
+  }
+
+  .nav-book:hover { background: var(--brown); }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+    background: var(--cream);
+    padding-top: 80px;
+  }
+
+  .hero-left {
+    flex: 1;
+    padding: 6rem 4rem 6rem 6rem;
+    position: relative;
+    z-index: 2;
+  }
+
+  .hero-right {
+    flex: 1;
+    height: 100vh;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero-right-fill {
+    position: absolute;
+    inset: 0;
+    background: var(--espresso);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .hero-right-fill::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse at 30% 70%, rgba(184,146,74,0.15) 0%, transparent 60%),
+      radial-gradient(ellipse at 70% 30%, rgba(184,146,74,0.08) 0%, transparent 50%);
+  }
+
+  .hero-monogram {
+    font-family: 'Playfair Display', serif;
+    font-size: 12rem;
+    font-weight: 400;
+    color: rgba(184,146,74,0.12);
+    line-height: 1;
+    position: absolute;
+    user-select: none;
+  }
+
+  .hero-badge {
+    position: relative;
+    z-index: 2;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    border: 1px solid rgba(184,146,74,0.4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 0.3rem;
+    text-align: center;
+    padding: 2rem;
+  }
+
+  .hero-badge-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.4rem;
+    font-style: italic;
+    color: var(--gold-light);
+    line-height: 1.2;
+  }
+
+  .hero-badge-sub {
+    font-size: 0.55rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: rgba(250,247,242,0.5);
+    margin-top: 0.5rem;
+  }
+
+  .hero-detail-row {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    gap: 2rem;
+    margin-top: 1rem;
+  }
+
+  .hero-detail-item {
+    text-align: center;
+  }
+
+  .hero-detail-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8rem;
+    color: var(--gold-light);
+    line-height: 1;
+  }
+
+  .hero-detail-label {
+    font-size: 0.55rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: rgba(250,247,242,0.4);
+    margin-top: 0.3rem;
+  }
+
+  .hero-eyebrow {
+    font-size: 0.65rem;
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .hero-eyebrow::before {
+    content: '';
+    width: 30px;
+    height: 1px;
+    background: var(--gold);
+  }
+
+  .hero-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(3rem, 6vw, 5.5rem);
+    font-weight: 400;
+    line-height: 1.05;
+    color: var(--espresso);
+    margin-bottom: 1.5rem;
+  }
+
+  .hero-title em {
+    font-style: italic;
+    color: var(--gold);
+  }
+
+  .hero-desc {
+    font-size: 0.95rem;
+    line-height: 1.9;
+    color: var(--muted);
+    max-width: 420px;
+    margin-bottom: 3rem;
+  }
+
+  .hero-actions {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+
+  .btn-primary {
+    display: inline-block;
+    font-size: 0.68rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--warm-white);
+    background: var(--espresso);
+    padding: 1rem 2rem;
+    text-decoration: none;
+    border-radius: 2px;
+    transition: background 0.3s;
+  }
+
+  .btn-primary:hover { background: var(--brown); }
+
+  .btn-secondary {
+    display: inline-block;
+    font-size: 0.68rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    border-bottom: 1px solid var(--gold);
+    padding-bottom: 2px;
+    text-decoration: none;
+    transition: color 0.3s;
+  }
+
+  .btn-secondary:hover { color: var(--brown-mid); border-color: var(--brown-mid); }
+
+  .hero-scroll {
+    position: absolute;
+    bottom: 3rem;
+    left: 6rem;
+    font-size: 0.6rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--muted);
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .hero-scroll::after {
+    content: '';
+    width: 40px;
+    height: 1px;
+    background: var(--muted);
+  }
+
+  /* STRIP */
+  .strip {
+    background: var(--espresso);
+    padding: 1.5rem 4rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 3rem;
+    flex-wrap: wrap;
+  }
+
+  .strip-item {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-size: 0.68rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: rgba(250,247,242,0.6);
+  }
+
+  .strip-dot {
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background: var(--gold);
+    flex-shrink: 0;
+  }
+
+  /* ABOUT */
+  .about {
+    padding: 8rem 6rem;
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 6rem;
+    align-items: center;
+    max-width: 1300px;
+    margin: 0 auto;
+  }
+
+  .about-visual {
+    position: relative;
+  }
+
+  .about-img-wrap {
+    background: var(--cream-dark);
+    border: 1px solid var(--border);
+    height: 480px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .about-img-inner {
+    font-family: 'Playfair Display', serif;
+    font-size: 6rem;
+    font-style: italic;
+    color: rgba(184,146,74,0.2);
+    user-select: none;
+  }
+
+  .about-img-caption {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: var(--espresso);
+    padding: 1.25rem 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .caption-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--gold); flex-shrink: 0; }
+
+  .caption-text {
+    font-size: 0.7rem;
+    letter-spacing: 0.1em;
+    color: rgba(250,247,242,0.7);
+    font-style: italic;
+  }
+
+  .about-accent {
+    position: absolute;
+    top: -1.5rem;
+    right: -1.5rem;
+    width: 100px;
+    height: 100px;
+    border: 1px solid var(--border);
+    background: var(--gold-pale);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 0.2rem;
+    text-align: center;
+    padding: 1rem;
+  }
+
+  .accent-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.6rem;
+    color: var(--espresso);
+    font-weight: 500;
+    line-height: 1;
+  }
+
+  .accent-txt {
+    font-size: 0.5rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--brown-mid);
+  }
+
+  .about-label {
+    font-size: 0.62rem;
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 1.2rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .about-label::before { content: ''; width: 20px; height: 1px; background: var(--gold); }
+
+  .about-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 4vw, 3.2rem);
+    font-weight: 400;
+    line-height: 1.15;
+    color: var(--espresso);
+    margin-bottom: 1.5rem;
+  }
+
+  .about-title em { font-style: italic; color: var(--gold); }
+
+  .about-body {
+    font-size: 0.88rem;
+    line-height: 2;
+    color: var(--muted);
+    margin-bottom: 1.2rem;
+  }
+
+  .about-quote {
+    border-left: 2px solid var(--gold);
+    padding: 1rem 1.5rem;
+    margin: 2rem 0;
+    background: var(--cream);
+    border-radius: 0 2px 2px 0;
+  }
+
+  .about-quote p {
+    font-family: 'Playfair Display', serif;
+    font-size: 1rem;
+    font-style: italic;
+    color: var(--espresso);
+    line-height: 1.7;
+  }
+
+  .about-quote cite {
+    font-size: 0.65rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-top: 0.5rem;
+    display: block;
+  }
+
+  /* SERVICES */
+  .services {
+    background: var(--cream);
+    padding: 8rem 6rem;
+  }
+
+  .section-header {
+    text-align: center;
+    margin-bottom: 5rem;
+  }
+
+  .section-label {
+    font-size: 0.62rem;
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 1rem;
+  }
+
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 4vw, 3.2rem);
+    font-weight: 400;
+    color: var(--espresso);
+    line-height: 1.2;
+  }
+
+  .section-title em { font-style: italic; color: var(--gold); }
+
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1.5rem;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .service-card {
+    background: var(--warm-white);
+    border: 1px solid var(--border);
+    padding: 2.5rem 2rem;
+    position: relative;
+    transition: all 0.3s;
+    border-radius: 2px;
+  }
+
+  .service-card:hover {
+    border-color: var(--gold);
+    transform: translateY(-4px);
+    box-shadow: 0 12px 32px rgba(44,31,20,0.08);
+  }
+
+  .service-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: var(--gold-pale);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1.25rem;
+    font-size: 1.1rem;
+  }
+
+  .service-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.15rem;
+    font-weight: 400;
+    color: var(--espresso);
+    margin-bottom: 0.75rem;
+  }
+
+  .service-desc {
+    font-size: 0.8rem;
+    line-height: 1.9;
+    color: var(--muted);
+  }
+
+  /* REVIEWS */
+  .reviews {
+    padding: 8rem 6rem;
+    background: var(--espresso);
+  }
+
+  .reviews .section-label { color: var(--gold-light); }
+
+  .reviews .section-title { color: var(--cream); }
+
+  .reviews-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    max-width: 1100px;
+    margin: 3rem auto 0;
+  }
+
+  .review-card {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(184,146,74,0.2);
+    padding: 2rem;
+    border-radius: 2px;
+  }
+
+  .review-stars {
+    color: var(--gold);
+    font-size: 0.85rem;
+    letter-spacing: 0.1em;
+    margin-bottom: 1rem;
+  }
+
+  .review-text {
+    font-family: 'Playfair Display', serif;
+    font-size: 0.95rem;
+    font-style: italic;
+    color: rgba(250,247,242,0.8);
+    line-height: 1.8;
+    margin-bottom: 1.25rem;
+  }
+
+  .review-author {
+    font-size: 0.65rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: rgba(250,247,242,0.4);
+  }
+
+  /* HOURS */
+  .hours {
+    padding: 8rem 6rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6rem;
+    align-items: start;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .hours-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 400;
+    color: var(--espresso);
+    margin-bottom: 2.5rem;
+    line-height: 1.2;
+  }
+
+  .hours-title em { font-style: italic; color: var(--gold); }
+
+  .hours-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.9rem 0;
+    border-bottom: 1px solid rgba(44,31,20,0.08);
+  }
+
+  .hours-day {
+    font-size: 0.72rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  .hours-time {
+    font-family: 'Playfair Display', serif;
+    font-size: 1rem;
+    color: var(--espresso);
+  }
+
+  .hours-time.closed { font-style: italic; color: var(--muted); }
+
+  .hours-cta {
+    background: var(--cream);
+    border: 1px solid var(--border);
+    padding: 3rem;
+    text-align: center;
+    border-radius: 2px;
+  }
+
+  .hours-cta-label {
+    font-size: 0.6rem;
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 1rem;
+  }
+
+  .hours-cta-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.6rem;
+    color: var(--espresso);
+    margin-bottom: 0.75rem;
+    line-height: 1.3;
+  }
+
+  .hours-cta-sub {
+    font-size: 0.8rem;
+    line-height: 1.8;
+    color: var(--muted);
+    margin-bottom: 2rem;
+  }
+
+  .hours-phone-big {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.3rem;
+    color: var(--espresso);
+    text-decoration: none;
+    display: block;
+    margin-top: 1.5rem;
+    transition: color 0.3s;
+  }
+
+  .hours-phone-big:hover { color: var(--gold); }
+
+  .hours-walkin {
+    margin-top: 1.5rem;
+    font-size: 0.65rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  /* LOCATION */
+  .location {
+    background: var(--cream-dark);
+    padding: 6rem;
+    text-align: center;
+  }
+
+  .location-address {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.5rem, 3vw, 2.5rem);
+    font-weight: 400;
+    color: var(--espresso);
+    margin: 1.5rem 0 0.5rem;
+    line-height: 1.3;
+  }
+
+  .location-city {
+    font-size: 0.7rem;
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 3rem;
+  }
+
+  .location-map {
+    width: 100%;
+    max-width: 900px;
+    height: 340px;
+    margin: 0 auto;
+    border: 1px solid var(--border);
+    overflow: hidden;
+    border-radius: 2px;
+  }
+
+  /* FOOTER */
+  footer {
+    background: var(--espresso);
+    padding: 3rem 6rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+  .footer-logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    font-style: italic;
+    color: var(--gold-light);
+    letter-spacing: 0.05em;
+  }
+
+  .footer-copy {
+    font-size: 0.65rem;
+    letter-spacing: 0.1em;
+    color: rgba(250,247,242,0.35);
+  }
+
+  .footer-contact {
+    font-size: 0.7rem;
+    letter-spacing: 0.1em;
+    color: rgba(250,247,242,0.5);
+    text-decoration: none;
+  }
+
+  .footer-contact:hover { color: var(--gold-light); }
+
+  /* REVEAL */
+  .reveal {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+
+  .reveal.visible { opacity: 1; transform: translateY(0); }
+
+  @media (max-width: 900px) {
+    nav { padding: 1.25rem 1.5rem; }
+    .nav-links { display: none; }
+    .hero { flex-direction: column; }
+    .hero-left { padding: 5rem 1.5rem 3rem; }
+    .hero-right { width: 100%; height: 280px; }
+    .about, .hours { grid-template-columns: 1fr; gap: 3rem; padding: 5rem 1.5rem; }
+    .services { padding: 5rem 1.5rem; }
+    .reviews { padding: 5rem 1.5rem; }
+    .location { padding: 4rem 1.5rem; }
+    footer { padding: 2.5rem 1.5rem; flex-direction: column; text-align: center; }
+    .strip { padding: 1.5rem 2rem; gap: 1.5rem; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="#" class="nav-logo">Hair <span>Dynasty</span></a>
+  <ul class="nav-links">
+    <li><a href="#services">Services</a></li>
+    <li><a href="#reviews">Reviews</a></li>
+    <li><a href="#hours">Hours</a></li>
+    <li><a href="#location">Find Us</a></li>
+  </ul>
+  <a href="tel:4164824108" class="nav-book">Book Appointment</a>
+</nav>
+
+<section class="hero">
+  <div class="hero-left">
+    <p class="hero-eyebrow">Toronto · Davisville Village · Since 2013</p>
+    <h1 class="hero-title">Where every<br>client feels <em>at home</em></h1>
+    <p class="hero-desc">Hair Dynasty has been a warm, welcoming presence on Yonge Street for over a decade. Expert stylists. Real care. A salon where you leave looking — and feeling — your best.</p>
+    <div class="hero-actions">
+      <a href="tel:4164824108" class="btn-primary">Call to Book</a>
+      <a href="#services" class="btn-secondary">See Our Services</a>
+    </div>
+    <p class="hero-scroll">Scroll to explore</p>
+  </div>
+  <div class="hero-right">
+    <div class="hero-right-fill">
+      <div class="hero-monogram">HD</div>
+      <div class="hero-badge">
+        <div class="hero-badge-name">Hair Dynasty</div>
+        <div class="hero-badge-sub">1881 Yonge St · Toronto</div>
+      </div>
+      <div class="hero-detail-row">
+        <div class="hero-detail-item">
+          <div class="hero-detail-num">4.6★</div>
+          <div class="hero-detail-label">Google Rating</div>
+        </div>
+        <div class="hero-detail-item">
+          <div class="hero-detail-num">40+</div>
+          <div class="hero-detail-label">Reviews</div>
+        </div>
+        <div class="hero-detail-item">
+          <div class="hero-detail-num">10+</div>
+          <div class="hero-detail-label">Years Open</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="strip">
+  <div class="strip-item"><div class="strip-dot"></div>1881 Yonge St, Toronto</div>
+  <div class="strip-item"><div class="strip-dot"></div>Mon–Fri 10am–7pm</div>
+  <div class="strip-item"><div class="strip-dot"></div>Walk-ins Welcome</div>
+  <div class="strip-item"><div class="strip-dot"></div>Call 416-482-4108</div>
+</div>
+
+<section class="about" id="about">
+  <div class="about-visual reveal">
+    <div class="about-img-wrap">
+      <div class="about-img-inner">HD</div>
+      <div class="about-img-caption">
+        <div class="caption-dot"></div>
+        <p class="caption-text">"Really warm in the salon." — Shelley Cohen, client since 2013</p>
+      </div>
+    </div>
+    <div class="about-accent">
+      <div class="accent-num">$</div>
+      <div class="accent-txt">Affordable pricing</div>
+    </div>
+  </div>
+  <div class="reveal">
+    <p class="about-label">Our Story</p>
+    <h2 class="about-title">More than a haircut.<br><em>A relationship.</em></h2>
+    <p class="about-body">Conveniently located in Davisville Village on Yonge Street, Hair Dynasty has spent over a decade building something most salons talk about but rarely achieve — a place where clients genuinely feel cared for.</p>
+    <p class="about-body">Our professionals are here to cater to your beauty needs. Whether you're coming in for a trim or a full transformation, you'll be heard, respected, and sent home happy.</p>
+    <div class="about-quote">
+      <p>"It's not just hair. It's confidence you can wear."</p>
+      <cite>— The Hair Dynasty Team</cite>
+    </div>
+  </div>
+</section>
+
+<section class="services" id="services">
+  <div class="section-header reveal">
+    <p class="section-label">What We Offer</p>
+    <h2 class="section-title">Our <em>Services</em></h2>
+  </div>
+  <div class="services-grid">
+    <div class="service-card reveal">
+      <div class="service-icon">✂️</div>
+      <h3 class="service-name">Women's Haircut</h3>
+      <p class="service-desc">Precision cuts tailored to your face shape, lifestyle, and personality. Every cut starts with a real conversation.</p>
+    </div>
+    <div class="service-card reveal">
+      <div class="service-icon">🎨</div>
+      <h3 class="service-name">Balayage & Colour</h3>
+      <p class="service-desc">Sun-kissed balayage, bold colour, highlights, and root touch-ups. We get the result you actually want.</p>
+    </div>
+    <div class="service-card reveal">
+      <div class="service-icon">💫</div>
+      <h3 class="service-name">Hair Extensions</h3>
+      <p class="service-desc">Add length and volume with premium extensions applied by experienced hands. Natural-looking, every time.</p>
+    </div>
+    <div class="service-card reveal">
+      <div class="service-icon">🌿</div>
+      <h3 class="service-name">Hair Treatments</h3>
+      <p class="service-desc">Smoothing, straightening, and restorative treatments to give your hair the deep care it deserves.</p>
+    </div>
+    <div class="service-card reveal">
+      <div class="service-icon">👑</div>
+      <h3 class="service-name">Braiding & Weaves</h3>
+      <p class="service-desc">Protective styles and full weave installations crafted with patience and skill.</p>
+    </div>
+    <div class="service-card reveal">
+      <div class="service-icon">🧒</div>
+      <h3 class="service-name">Children's Haircut</h3>
+      <p class="service-desc">A welcoming, patient experience for children. The whole family is always welcome at Hair Dynasty.</p>
+    </div>
+  </div>
+</section>
+
+<section class="reviews" id="reviews">
+  <div class="section-header reveal">
+    <p class="section-label">What Clients Say</p>
+    <h2 class="section-title" style="color:var(--cream);">4.6 Stars on <em>Google</em></h2>
+  </div>
+  <div class="reviews-grid">
+    <div class="review-card reveal">
+      <div class="review-stars">★★★★★</div>
+      <p class="review-text">"An absolute gem. The staff are extremely warm, kind and sincere. They go out of their way to make you feel comfortable and do their best to make sure that the customer feels seen and heard."</p>
+      <p class="review-author">— Google Review</p>
+    </div>
+    <div class="review-card reveal">
+      <div class="review-stars">★★★★★</div>
+      <p class="review-text">"Love everything about this place. Such great people and I got a great haircut. Thank you so much guys."</p>
+      <p class="review-author">— Google Review</p>
+    </div>
+    <div class="review-card reveal">
+      <div class="review-stars">★★★★★</div>
+      <p class="review-text">"Extremely clean, very professional and a smart comfortable decor. Warm-hearted people. I guarantee you will not be disappointed."</p>
+      <p class="review-author">— BestProsInTown Review</p>
+    </div>
+  </div>
+</section>
+
+<section class="hours" id="hours">
+  <div class="reveal">
+    <p class="section-label">Visit Us</p>
+    <h2 class="hours-title">Opening<br><em>Hours</em></h2>
+    <div class="hours-row"><span class="hours-day">Monday</span><span class="hours-time">10:00 AM – 7:00 PM</span></div>
+    <div class="hours-row"><span class="hours-day">Tuesday</span><span class="hours-time">10:00 AM – 7:00 PM</span></div>
+    <div class="hours-row"><span class="hours-day">Wednesday</span><span class="hours-time">10:00 AM – 7:00 PM</span></div>
+    <div class="hours-row"><span class="hours-day">Thursday</span><span class="hours-time">10:00 AM – 7:00 PM</span></div>
+    <div class="hours-row"><span class="hours-day">Friday</span><span class="hours-time">10:00 AM – 7:00 PM</span></div>
+    <div class="hours-row"><span class="hours-day">Saturday</span><span class="hours-time">10:00 AM – 6:00 PM</span></div>
+    <div class="hours-row"><span class="hours-day">Sunday</span><span class="hours-time closed">Closed</span></div>
+  </div>
+  <div class="reveal">
+    <div class="hours-cta">
+      <p class="hours-cta-label">Ready to visit?</p>
+      <h3 class="hours-cta-title">Book your appointment today</h3>
+      <p class="hours-cta-sub">Walk-ins welcome based on availability. Call ahead to guarantee your spot — we'd love to have you.</p>
+      <a href="tel:4164824108" class="btn-primary">Call 416-482-4108</a>
+      <a href="tel:4164824108" class="hours-phone-big">416-482-4108</a>
+      <p class="hours-walkin">Walk-ins always welcome</p>
+    </div>
+  </div>
+</section>
+
+<section class="location" id="location">
+  <p class="section-label reveal">Find Us</p>
+  <h2 class="location-address reveal">1881 Yonge Street</h2>
+  <p class="location-city reveal">Toronto, ON M4S 3C4 · Davisville Village</p>
+  <div class="location-map reveal">
+    <iframe
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1442!2d-79.3937!3d43.6978!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x882b33a18ca26b25%3A0x1!2s1881+Yonge+St%2C+Toronto%2C+ON!5e0!3m2!1sen!2sca!4v1"
+      width="100%" height="100%"
+      style="border:0; filter: sepia(20%) contrast(95%);"
+      allowfullscreen="" loading="lazy">
+    </iframe>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-logo">Hair Dynasty</div>
+  <p class="footer-copy">© 2025 Hair Dynasty · 1881 Yonge St, Toronto, ON · Davisville Village</p>
+  <a href="tel:4164824108" class="footer-contact">416-482-4108</a>
+</footer>
+
+<script>
+const obs = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); }
+  });
+}, { threshold: 0.08 });
+document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+</script>
+
+</body>
+</html>
